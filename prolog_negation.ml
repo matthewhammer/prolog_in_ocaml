@@ -283,9 +283,24 @@ let show_answers varnames (answers:(subst * cut_sig) list) =
         print_endline ("{ " ^ String.concat "; " items ^ " }")
       ) answers
 
-let run_query ~prog ~vars goals =
+let run_query_ ~prog ~vars goals =
   let ans = solve prog goals [] 0 in
-  show_answers vars ans
+  show_answers vars ans ;
+  ans
+
+let run_query ~prog ~vars goals = ignore (run_query_ ~prog ~vars goals)
+
+(* Check equivalence of lists of ground terms, ignoring order and duplicates *)
+let equiv_answers (expected:term list) (actual: (subst * sig) list) =
+  let expected : term list = List.map apply expected in
+  let ans = List.sort compare expected = List.sort compare actual in
+  if ans then print_endline "test success!" else print_endline "Error: test failure.";
+  ans
+
+let run_test ~prog ~vars goals expected =
+   let ans = run_query_ ~prog ~vars goals in
+   let cmp = equiv_answers expected ans in
+   ()
 
 (* ---------- Test program ---------- *)
 
@@ -324,7 +339,7 @@ let prog_plus : program =
 let () =
   print_endline "== Demo 1: max/3 with cut (one answer) ==";
   let q1 = [ Call (Comp("max", [Atom "2"; Atom "5"; Var "M"])) ] in
-  run_query ~prog:prog_base ~vars:["M"] q1;
+  run_test ~prog:prog_base ~vars:["M"] q1 [Atom "5"];
 
   print_endline "\n== Demo 2a: negation-as-failure BEFORE adding fact ==";
   (* Constrain Y first, then negate: succeeds because parent(alice,charlie) is absent. *)
@@ -338,4 +353,6 @@ let () =
   run_query ~prog:prog_plus ~vars:["Y"] q2b;
 
   print_endline "\nDone."
+
+
 

@@ -1,0 +1,38 @@
+<MotokoExpr> ::=
+      ...
+    | `prolog <PrologProgram>
+
+<PrologProgram> ::= 
+      <PrologClause>*
+
+<PrologClause> ::= 
+      <PrologHead> '.' 
+    | <PrologHead> ':-' <PrologBody> '.'
+
+<PrologHead> ::= 
+      <PrologTerm>    // typically atom or compound term
+
+<PrologBody> ::= 
+      <PrologGoal> (',' <PrologGoal>)*  // conjunction
+
+<PrologGoal> ::= 
+      <PrologTerm>
+    | <PrologGoal> ';' <PrologGoal>     // disjunction
+    | 'not' <PrologGoal>
+    | '!'                               // cut
+    | '(' <PrologGoal> ')'
+
+<PrologTerm> ::= 
+      <PrologVar>
+    | <PrologAtom>
+    | <PrologAtom> '(' <PrologTermList> ')'
+
+<PrologTermList> ::= 
+      <PrologTerm> (',' <PrologTerm>)*
+
+<PrologVar> ::= 
+      <MotokoIdent>                     // unquoted identifier
+
+<PrologAtom> ::= 
+      '`' <MotokoIdent>                  // backtick identifier
+

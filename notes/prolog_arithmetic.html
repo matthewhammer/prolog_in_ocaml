@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ISO Prolog Arithmetic Operators</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 2em; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #333; padding: 0.5em; text-align: left; }
+  th { background-color: #eee; }
+  code { background-color: #f9f9f9; padding: 2px 4px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<h1>ISO Prolog: Arithmetic Operators and Functions</h1>
+<p>This table lists the standard arithmetic operators and functions in ISO Prolog, along with a tiny example of usage for each.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Functor / Operator</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Binary arithmetic operators -->
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>+</code></td>
+      <td>Addition</td>
+      <td><code>X is 2 + 3. % X = 5</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>-</code></td>
+      <td>Subtraction</td>
+      <td><code>X is 5 - 2. % X = 3</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>*</code></td>
+      <td>Multiplication</td>
+      <td><code>X is 4 * 3. % X = 12</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>/</code></td>
+      <td>Floating-point division</td>
+      <td><code>X is 5 / 2. % X = 2.5</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>//</code></td>
+      <td>Integer division</td>
+      <td><code>X is 5 // 2. % X = 2</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>rem</code></td>
+      <td>Integer remainder</td>
+      <td><code>X is 5 rem 2. % X = 1</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>mod</code></td>
+      <td>Modulus</td>
+      <td><code>X is 5 mod 2. % X = 1</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>**</code></td>
+      <td>Exponentiation</td>
+      <td><code>X is 2 ** 3. % X = 8</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>^</code></td>
+      <td>Exponentiation (synonym for **)</td>
+      <td><code>X is 2 ^ 3. % X = 8</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>/\</code></td>
+      <td>Bitwise AND (integers)</td>
+      <td><code>X is 6 /\ 3. % X = 2</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>\/</code></td>
+      <td>Bitwise OR (integers)</td>
+      <td><code>X is 6 \/ 3. % X = 7</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>xor</code></td>
+      <td>Bitwise XOR (integers)</td>
+      <td><code>X is 6 xor 3. % X = 5</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code><</code></td>
+      <td>Left shift (integers)</td>
+      <td><code>X is 3 << 2. % X = 12</code></td>
+    </tr>
+    <tr>
+      <td>Binary Operator</td>
+      <td><code>>></code></td>
+      <td>Right shift (integers)</td>
+      <td><code>X is 12 >> 2. % X = 3</code></td>
+    </tr>
+
+    <!-- Unary operators -->
+    <tr>
+      <td>Unary Operator</td>
+      <td><code>+</code></td>
+      <td>Unary plus</td>
+      <td><code>X is +5. % X = 5</code></td>
+    </tr>
+    <tr>
+      <td>Unary Operator</td>
+      <td><code>-</code></td>
+      <td>Unary minus</td>
+      <td><code>X is -5. % X = -5</code></td>
+    </tr>
+    <tr>
+      <td>Unary Operator</td>
+      <td><code>\</code></td>
+      <td>Bitwise complement (integer)</td>
+      <td><code>X is \2. % X = -3</code></td>
+    </tr>
+
+    <!-- Unary math functions -->
+    <tr>
+      <td>Unary Function</td>
+      <td><code>abs/1</code></td>
+      <td>Absolute value</td>
+      <td><code>X is abs(-7). % X = 7</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>sign/1</code></td>
+      <td>Sign (-1,0,1)</td>
+      <td><code>X is sign(-10). % X = -1</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>sqrt/1</code></td>
+      <td>Square root (returns float)</td>
+      <td><code>X is sqrt(9). % X = 3.0</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>sin/1</code></td>
+      <td>Sine (radians)</td>
+      <td><code>X is sin(pi/2). % X = 1.0</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>cos/1</code></td>
+      <td>Cosine (radians)</td>
+      <td><code>X is cos(0). % X = 1.0</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>tan/1</code></td>
+      <td>Tangent (radians)</td>
+      <td><code>X is tan(0). % X = 0.0</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>asin/1</code></td>
+      <td>Arcsine (radians)</td>
+      <td><code>X is asin(1). % X = pi/2</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>acos/1</code></td>
+      <td>Arccosine (radians)</td>
+      <td><code>X is acos(0). % X = pi/2</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>atan/1</code></td>
+      <td>Arctangent (radians)</td>
+      <td><code>X is atan(1). % X = pi/4</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>exp/1</code></td>
+      <td>Exponential (e^X)</td>
+      <td><code>X is exp(1). % X = 2.718...</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>log/1</code></td>
+      <td>Natural logarithm</td>
+      <td><code>X is log(exp(1)). % X = 1.0</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>float/1</code></td>
+      <td>Convert to float</td>
+      <td><code>X is float(3). % X = 3.0</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>truncate/1</code></td>
+      <td>Truncate toward zero</td>
+      <td><code>X is truncate(3.7). % X = 3</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>round/1</code></td>
+      <td>Round to nearest integer</td>
+      <td><code>X is round(3.7). % X = 4</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>floor/1</code></td>
+      <td>Round down</td>
+      <td><code>X is floor(3.7). % X = 3</code></td>
+    </tr>
+    <tr>
+      <td>Unary Function</td>
+      <td><code>ceiling/1</code></td>
+      <td>Round up</td>
+      <td><code>X is ceiling(3.2). % X = 4</code></td>
+    </tr>
+
+    <!-- Binary functions -->
+    <tr>
+      <td>Binary Function</td>
+      <td><code>atan2/2</code></td>
+      <td>Arctangent of Y/X</td>
+      <td><code>X is atan2(1,1). % X = pi/4</code></td>
+    </tr>
+    <tr>
+      <td>Binary Function</td>
+      <td><code>max/2</code></td>
+      <td>Maximum of two numbers</td>
+      <td><code>X is max(3,7). % X = 7</code></td>
+    </tr>
+    <tr>
+      <td>Binary Function</td>
+      <td><code>min/2</code></td>
+      <td>Minimum of two numbers</td>
+      <td><code>X is min(3,7). % X = 3</code></td>
+    </tr>
+
+  </tbody>
+</table>
+</body>
+</html>
